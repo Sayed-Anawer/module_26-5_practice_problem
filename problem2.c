@@ -4,15 +4,15 @@
 
 #include<stdio.h>
 
-void swapp(int arr[],int N){
+void swapp(int *arr,int N){
  for(int i=0;i<N-1;i++){
            for(int j=0;j<N-i-1;j++){
-               if(arr[j]>arr[j+1]){
-                   int temp = arr[j];
-                   arr[j] = arr[j+1];
-                   arr[j+1] = temp;
+               if(*(arr+j)>*(arr+j+1)){
+                   int temp = *(arr+j);
+                   *(arr+j) = *(arr+j+1);
+                   *(arr+j+1) = temp;
                }
-           
+
         }
 }
 }
@@ -25,7 +25,7 @@ int main(){
         }
        swapp(arr,N);
         for(int i=0;i<N;i++){
-            printf("%p ",arr[i]);
+            printf("%d ",arr[i]);
         }
         return 0;
 }
